@@ -2,7 +2,7 @@ import requests
 import time
 
 
-class RokuTV:
+class RokuClient:
 
     _PROTOCOL = "http"
     _PORT = 8060
@@ -29,15 +29,15 @@ class RokuTV:
 
     def __init__(self, ip_addr):
         # setup the API url
-        self._keypress_url = RokuTV._PROTOCOL + "://" + ip_addr + ":" + str(RokuTV._PORT) + "/" + RokuTV._KEYPRESS_CMD + "/"
+        self._keypress_url = RokuClient._PROTOCOL + "://" + ip_addr + ":" + str(RokuClient._PORT) + "/" + RokuClient._KEYPRESS_CMD + "/"
 
 
     def night_mode(self):
-        self._sendreq(RokuTV._NIGHT_SEQ)
+        self._sendreq(RokuClient._NIGHT_SEQ)
 
 
     def day_mode(self):
-        self._sendreq(RokuTV._DAY_SEQ)
+        self._sendreq(RokuClient._DAY_SEQ)
             
             
     def _sendreq(self, keypress_seq):
@@ -46,13 +46,13 @@ class RokuTV:
             success = False
             retry = 0
             
-            while (success is False) and (retry <= RokuTV._MAX_RETIRES_PER_REQUEST) :
+            while (success is False) and (retry <= RokuClient._MAX_RETIRES_PER_REQUEST) :
                 resp = requests.post(self._keypress_url + key)
                 success = resp.ok
                 ++retry
 
             # allow additional time after first request, TV may be in sleep mode
             if i == 0:
-                time.sleep(RokuTV._ALLOW_WAKE_SECS)
+                time.sleep(RokuClient._ALLOW_WAKE_SECS)
             else:
-                time.sleep(RokuTV._SECS_BETWEEN_REQUESTS)
+                time.sleep(RokuClient._SECS_BETWEEN_REQUESTS)
