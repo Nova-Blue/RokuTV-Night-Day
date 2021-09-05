@@ -19,25 +19,38 @@ class RokuClient:
     _INFO_KEY = "Info"
     _BACK_KEY = "Back"
     _MUTE_KEY = "VolumeMute"
-
-    # keypress sequences for modifying TV brightness
-    _NIGHT_SEQ = [_INFO_KEY, _DOWN_KEY, _RIGHT_KEY, _DOWN_KEY, _DOWN_KEY, _LEFT_KEY,
-                   _LEFT_KEY, _INFO_KEY, _MUTE_KEY]
-    _DAY_SEQ = [_INFO_KEY, _DOWN_KEY, _LEFT_KEY, _DOWN_KEY, _DOWN_KEY, _RIGHT_KEY,
-                   _RIGHT_KEY, _INFO_KEY, _MUTE_KEY]
     
 
     def __init__(self, ip_addr):
         # setup the API url
         self._keypress_url = RokuClient._PROTOCOL + "://" + ip_addr + ":" + str(RokuClient._PORT) + "/" + RokuClient._KEYPRESS_CMD + "/"
+        self._read_command_file()
+
+    def _read_command_file(self):
+        modes_read = 0
+        f = open('commands.txt', 'r')
+
+        for line in f:
+            line = line.strip()
+            if (line.startswith('#') or len(line) == 0):
+                continue
+
+            if modes_read == 0:
+                self._day_seq = line.split(',')
+            elif modes_read == 1:
+                self._night_seq = line.split(',')
+
+            modes_read += 1
+
+        f.close()
 
 
     def night_mode(self):
-        self._sendreq(RokuClient._NIGHT_SEQ)
+        self._sendreq(self._night_seq)
 
 
     def day_mode(self):
-        self._sendreq(RokuClient._DAY_SEQ)
+        self._sendreq(self._day_seq)
             
             
     def _sendreq(self, keypress_seq):
