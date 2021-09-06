@@ -12,13 +12,6 @@ class RokuClient:
     
     # constants for Roku API
     _KEYPRESS_CMD = "keypress"
-    _UP_KEY = "Up"
-    _DOWN_KEY = "Down"
-    _LEFT_KEY = "Left"
-    _RIGHT_KEY = "Right"
-    _INFO_KEY = "Info"
-    _BACK_KEY = "Back"
-    _MUTE_KEY = "VolumeMute"
     
 
     def __init__(self, ip_addr):
