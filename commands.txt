@@ -1,6 +1,6 @@
 #Edit these commands to match the setup of your TV
-#Commands for a single mode are case sensitive, seperated by commas (without spaces), and are on the same line
-#Currently supported commands are: Up Down Left Right Info Back VolumeMute
+#Commands for a single mode are seperated by commas (without spaces), and are on the same line
+#Currently supported commands can be found here: https://developer.roku.com/docs/developer-program/debugging/external-control-api.md#keypress-key-values
 #The VolumeMute command functions as a mute button. If the TV is already muted, this command will unmute the TV, etc
 
 #Program logic will scan commands in this order:
