@@ -1,6 +1,7 @@
-#Edit these commands to match your TV
+#Edit these commands to match the setup of your TV
+#Commands for a single mode are case sensitive, seperated by commas (without spaces), and are on the same line
 #Currently supported commands are: Up Down Left Right Info Back VolumeMute
-#Commands for a mode are case sensitive, seperated by commas (without spaces), and are on the same line
+#The VolumeMute command functions as a mute button. If the TV is already muted, this command will unmute the TV, etc
 
 #Program logic will scan commands in this order:
 #1. Day Mode
