@@ -20,11 +20,13 @@ tv.day_mode()
 ```
 The "commands.txt" file is where night mode and day mode retrieve the list of key presses to send to the TV. Instructions and an example setup are provided within the file, but here is a preview: 
 
->#Day Mode commands
->Info,Down,Left,Down,Down,Right,Right,Info,VolumeMute
->
->#Night Mode commands
->Info,Down,Right,Down,Down,Left,Left,Info,VolumeMute
+```
+#Day Mode commands
+Info,Down,Left,Down,Down,Right,Right,Info,VolumeMute
+
+#Night Mode commands
+Info,Down,Right,Down,Down,Left,Left,Info,VolumeMute
+```
 
 
 
