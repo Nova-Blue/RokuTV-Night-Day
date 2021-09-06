@@ -8,6 +8,7 @@ This project was designed for people with Roku TVs who use their device as a nig
 ```python
 from RokuTV import RokuClient
 
+# IP Address for a RokuTV on the local network
 tv = RokuClient("192.168.1.56")
 
 # sends a user specified sequence of commands to the TV
