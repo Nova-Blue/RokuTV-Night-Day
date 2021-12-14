@@ -28,9 +28,3 @@ Info,Down,Left,Down,Down,Right,Right,Info,VolumeMute
 #Night Mode commands
 Info,Down,Right,Down,Down,Left,Left,Info,VolumeMute
 ```
-
-
-
-## Disclaimer
-
-This code is fully functional, however, it was developed for learning purposes and may not offer the full functionality or error handling as may be seen in other software.
